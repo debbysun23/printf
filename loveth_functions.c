@@ -24,7 +24,7 @@ int print_char(va_list ap, params_t *params)
 }
 
 /**
- * print_int - Prints a signed decimal integer to stdout
+ * print_int - Prints an integer to stdout
  * @ap: The va_list containing the integer argument
  * @params: The parameters struct (not used in this function)
  *
@@ -32,11 +32,16 @@ int print_char(va_list ap, params_t *params)
  */
 int print_int(va_list ap, params_t *params)
 {
-	long l;
+	int num = va_arg(ap, int);
+	int count = 0;
 
-	if (params->l_modifier)
-		l = va_arg(ap, long);
-	else if (params->h_modifier)
-		l = (short int)va_arg(ap, int);
-else
-	l = (int)va_arg(ap, int);
+	if (num < 0)
+	{
+		_putchar('-');
+		num = -num;
+		count++;
+	}
+		count += print_number(convert(num, 10, 0, params) params);
+
+	return count;
+}
