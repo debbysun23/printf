@@ -38,4 +38,16 @@ int print_number(char *str, params_t *params)
 	unsigned int i = _strlen(str);
 	int neg = (!params->unsign && *str == '-');
 
-	if (!params->precision && *str == '0' && !str[1])
+if (!params->precision && *str == '0' && !str[1])
+{
+	_putchar('0');
+	return (1);
+}
+if (neg)
+{
+	_putchar('-');
+	str++;
+	i--;
+}
+return (print_number_left_shift(str, params));
+}

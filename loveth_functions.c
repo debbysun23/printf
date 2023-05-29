@@ -38,5 +38,5 @@ int print_int(va_list ap, params_t *params)
 		l = va_arg(ap, long);
 	else if (params->h_modifier)
 		l = (short int)va_arg(ap, int);
-	else
-		l = (int)va_arg(ap, int);
+else
+	l = (int)va_arg(ap, int);
