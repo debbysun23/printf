@@ -1,30 +1,24 @@
 #include "main.h"
 
 /**
- * get_precision - gets the precision from the format string
+ * print_string - prints the precision from the format string
  * @s: the format string
  * @params: the parameters struct
- * @ap: the argument pointer
  * Return: new pointer
  */
-
-char *get_precision(char *s, params_t *params, va_list ap)
+int print_string(char *s, params_t *params)
 {
-	int d = 0;
+	int count = 0;
 
-	if (*s != '.')
-		return (s);
-	s++;
-	if (s == '')
+	if (s == NULL)
+		s = "(null)";
+
+	while (*s != '\0')
 	{
-		d = va_arg(ap, int);
+		_putchar(*s);
 		s++;
+		count++;
 	}
-	else
-	{
-		while (_isdigit(*s))
-			d = d * 10 + (*s++ - '0');
-	}
-	params->precision = d;
-	return (s);
+
+	return (count);
 }
