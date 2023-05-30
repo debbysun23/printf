@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 	while (get_flag(p, &params)) /* while char at p is flag char */
 
 {
-	p++; /* next char */
+	p++; /*the next char */
 }
 	p = get_width(p, &params, ap);
 	p = get_precision(p, &params, ap);
 	if (get_modifier(p, &params))
-	p++;
+		p++;
 	if (!get_specifier(p))
 	sum += print_from_to(start, p,
 	params.l_modifier || params.h_modifier ? p - 1 : 0);
